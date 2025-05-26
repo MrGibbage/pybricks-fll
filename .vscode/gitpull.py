@@ -24,4 +24,11 @@ else:
 
 print("git pull in five seconds")
 countdown(5)
-subprocess.run(["git", "pull"])
+try:
+    result = subprocess.run(
+        ["git", "pull"], capture_output=True, text=True, check=True
+    )
+except Exception as e:
+    print(f"\033[91mThere was an error\033[0m")
+    print(f"\033[91m{e}\033[0m")
+    print(f"\033[91mPlease close and reopen VS Code\033[0m")
