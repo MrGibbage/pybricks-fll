@@ -25,9 +25,8 @@ else:
 print("git pull in five seconds")
 countdown(5)
 try:
-    result = subprocess.run(
-        ["git", "pull"], capture_output=True, text=True, check=True
-    )
+    result = subprocess.run(["git", "pull"], check=True)
+    print(f"\033[92m{result}\033[0m")
 except Exception as e:
     print(f"\033[91mThere was an error\033[0m")
     print(f"\033[91m{e}\033[0m")
